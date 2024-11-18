@@ -1,8 +1,4 @@
 # 3. Сценарий Foursquare:
-# - Напишите сценарий на языке Python, который предложит пользователю ввести интересующую его категорию (например, кофейни, музеи, парки и т.д.).
-# - Используйте API Foursquare для поиска заведений в указанной категории.
-# - Получите название заведения, его адрес и рейтинг для каждого из них.
-# - Скрипт должен вывести название и адрес и рейтинг каждого заведения в консоль.
 
 import requests
 import json
@@ -51,8 +47,8 @@ if response.status_code == 200:
             print("Рейтинг:", venue["rating"] if 'rating' in venue else "Рейтинг не найден.")
             print("\n")
         except KeyError as e:
-            logging.error(f"Отсутствует ожидаемое поле в ответе: {e}")
+            logging.error(f"Отсутствует ожидаемое поле: {e}")
 
-    logging.info(f"Статус запроса: {response.status_code}")
+    logging.info(f"Статус Вашего запроса: {response.status_code}")
 else:
-    print("Запрос API отклонен с кодом состояния:", response.status_code)
+    print("Запрос API отклонен с ошибкой:", response.status_code)
